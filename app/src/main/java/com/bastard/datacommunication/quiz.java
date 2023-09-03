@@ -22,7 +22,7 @@ import java.util.Locale;
 public class quiz extends AppCompatActivity {
 
 	private TextView questionTextView;
-	 private static final long COUNTDOWN_IN_MILLIS = 40000;
+	private static final long COUNTDOWN_IN_MILLIS = 40000;
 	private TextView scores;
 	private int totalCorrect = 0;
 	private RadioGroup answerRadioGroup;
@@ -376,7 +376,7 @@ public class quiz extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.start);
+		setContentView(R.layout.activity_quiz);
 
 		questionTextView = findViewById(R.id.questionTextView);
 		answerRadioGroup = findViewById(R.id.answerRadioGroup);
@@ -384,8 +384,14 @@ public class quiz extends AppCompatActivity {
 		resultTextView = findViewById(R.id.resultTextView);
 		scores = findViewById(R.id.text_view_score);
 		textViewCountDOwn = findViewById(R.id.text_view_countdown);
+		//btn_prev = findViewById(R.id.prev);
+		//chkAnswer = findViewById(R.id.checkBox);
 
 		updateQuestion(currentQuestionIndex);
+
+		/*if (chkAnswer.isChecked()){
+
+		}*/
 
 		nextButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -399,8 +405,8 @@ public class quiz extends AppCompatActivity {
 						totalCorrect++;
 						scores.setText("Score: " + totalCorrect);
 
-						/*timeLeftInMillis = COUNTDOWN_IN_MILLIS;
-						startCountDown();*/
+						timeLeftInMillis = COUNTDOWN_IN_MILLIS;
+						startCountDown();
 					} else {
 						Toast.makeText(quiz.this, "Incorrect. Try again.", Toast.LENGTH_SHORT).show();
 
@@ -416,6 +422,16 @@ public class quiz extends AppCompatActivity {
 				}
 			}
 		});
+
+		/*btn_prev.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+
+
+			}
+		});*/
+
+
 
 
 	}
